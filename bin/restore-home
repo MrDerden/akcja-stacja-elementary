@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then 
+  echo "please specify backup directory on sezam (usually old laptop name)"; 
+  exit 1; 
+fi
+
+HOST=$1
+
+RESTORE=<<"END"
+Pulpit Desktop
+Wideo Videos
+Obrazy Pictures
+Muzyka Music
+Dokumenty Documents
+.mozilla
+.thunderbird
+.airvpn
+.config/libreoffice
+.config/chromium
+.config/Slack
+.local/share/gnome-shell
+.config/goa-1.0/accounts.conf
+.config/keepassxc/keepassxc.ini
+.local/share/data/Nextcloud
+END
+
+for dir in $RESTORE;
+do 
+  duplicity restore --force --file-to-restore=/home/$USER/$dir scp://$USER@sezam/$HOST $HOME/$dir; 
+  if [ $? -ne 0 ]; then exit 1; fi
+done
