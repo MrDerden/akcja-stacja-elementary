@@ -3,10 +3,10 @@
 
 ## Instalacja
 
-Z roota: /not actual right now/
+Z roota: 
 
 ```sh
-wget -O - https://akcja.link/stacja | sudo bash -
+wget -O - https://raw.githubusercontent.com/MrDerden/akcja-stacja-elementary/master/bootstrap | sudo bash -
 
 ```
 
