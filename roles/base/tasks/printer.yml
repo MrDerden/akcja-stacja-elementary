@@ -11,7 +11,7 @@
     - printer
   shell: "(
   cd /opt/brother/Printers/MFCL5700DN/lpd;
-  lpadmin -p Brother -E -v 'ipp://Brother%20MFC-L5700DN%20series._ipp._tcp.local:631')"
+  lpadmin -p Brother -E -v 'dnssd://BRN3C2AF4A93BAE.local:631/ipp/print')"
   when: brother.stat.exists == False
 
 
