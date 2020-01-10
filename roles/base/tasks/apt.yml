@@ -41,7 +41,43 @@
   apt: name={{item}} state=present update_cache=true force=yes
   with_items:
     - apt-transport-https
-
+    - systemd-container
+    #- gnome-shell
+    #- chrome-gnome-shell
+    #- nemo
+    #- chromium-browser
+    #- thunderbird
+    #- ubuntu-restricted-addons # flash, mpeg, etc.
+    #- audacity
+    #- gimp
+    - ttf-mscorefonts-installer
+    #- vim
+    - git 
+    #- imagemagick 
+    #- fortune-mod
+    #- htop
+    #- dconf-editor
+    #- gnome-tweak-tool
+    #- sysstat
+    - texlive-xetex
+    - texlive-latex-extra
+    - texlive-lang-polish
+    - texlive-latex-recommended
+    - texlive-fonts-recommended
+    - texlive-fonts-extra
+    #- gscan2pdf
+    #- network-manager-openvpn-gnome
+    #- airvpn
+    #- nextcloud-client
+    #- moka-icon-theme
+    #- faba-icon-theme
+    - vlc
+    #- newrelic-infra 
+    #- keepassxc
+    #- duplicity
+    - python-gi
+    #- signal-desktop
+    - xul-ext-lightning
     # - peek
     # - skypeforlinux # <- not in cosmic repo again
     # - slack-desktop # <- not in cosmic repo again
@@ -53,6 +89,15 @@
   when: ansible_distribution_release == 'cosmic'
 
 
+ 
+- name: Install slack from snap
+  shell: snap install --classic slack 
+  
+- name: Run AirVPN on startup
+  copy:
+    src: ../files/AirVPN.desktop
+    dest: "{{home}}/.config/autostart/AirVPN.desktop"
+    mode: 0755
 
 - copy:
     src: "../files/{{item}}"
