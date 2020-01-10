@@ -68,7 +68,7 @@
     #- nextcloud-client
     #- moka-icon-theme
     #- faba-icon-theme
-    - vlc
+    #- vlc
     #- newrelic-infra 
     #- keepassxc
     - duplicity
