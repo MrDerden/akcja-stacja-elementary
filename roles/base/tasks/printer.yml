@@ -6,12 +6,16 @@
     path: /etc/cups/ppd/Brother.ppd
   register: brother
 
+- name: Install Brother driver from .deb package
+  apt:
+    deb: /tmp/mfcl5700dnlpr-3.2.0-1.i386.deb
+
 - name: Install Brother printer
   tags:
     - printer
   shell: "(
   cd /opt/brother/Printers/MFCL5700DN/lpd;
-  lpadmin -p Brother -E -v 'dnssd://BRN3C2AF4A93BAE.local:631/ipp/print')"
+  lpadmin -p Brother -E -v 'ipp://BRN3C2AF4A93BAE.local:631/ipp/print')"
   when: brother.stat.exists == False
 
 
