@@ -32,11 +32,6 @@
 - name: Accept the EULA for MS core fonts
   shell: "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
 
-- name: Remove Keepass CX from Snap
-  tags:
-    - keepassxc
-  shell: snap remove keepassxc
-
 - name: Install all necessary packages and update the system
   apt: name={{item}} state=present update_cache=true force=yes
   with_items:
