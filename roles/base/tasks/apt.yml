@@ -20,7 +20,7 @@
     - "deb http://eddie.website/repository/apt stable main"
     - ppa:nextcloud-devs/client
     - "deb [arch=amd64] https://download.newrelic.com/infrastructure_agent/linux/apt xenial main"
-    - ppa:phoerious/keepassxc
+    #- ppa:phoerious/keepassxc
     - "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
     # - ppa:peek-developers/stable
 
@@ -38,6 +38,7 @@
   with_items:
     - apt-transport-https
     - systemd-container
+    - snapd
     #- gnome-shell
     #- chrome-gnome-shell
     #- nemo
@@ -45,16 +46,16 @@
     #- thunderbird
     #- ubuntu-restricted-addons # flash, mpeg, etc.
     #- audacity
-    #- gimp
+    - gimp
     - ttf-mscorefonts-installer
-    #- vim
+    - vim
     - git 
     #- imagemagick 
-    #- fortune-mod
-    #- htop
-    #- dconf-editor
-    #- gnome-tweak-tool
-    #- sysstat
+    - fortune-mod
+    - htop
+    - dconf-editor
+    - gnome-tweak-tool
+    - sysstat
     - texlive-xetex
     - texlive-latex-extra
     - texlive-lang-polish
@@ -87,7 +88,7 @@
 
  
 - name: Install slack from snap
-  shell: snap install --classic slack 
+  shell: snap install slack --classic 
   
 - name: Run AirVPN on startup
   copy:
