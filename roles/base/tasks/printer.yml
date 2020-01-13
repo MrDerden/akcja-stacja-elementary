@@ -14,7 +14,7 @@
   tags:
     - printer
   shell: "(
-  lpadmin -p Brother -E -v socket://192.168.108.201 -P /usr/share/ppd/brother/brother-MFCL5700DN-cups-en.ppd	
+  lpadmin -p Brother -E -v socket://192.168.108.201 -P /etc/cups/ppd/Brother_MFC-L5700DN_series.ppd	
 	)"
   when: brother.stat.exists == False
 
