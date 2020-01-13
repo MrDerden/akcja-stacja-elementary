@@ -12,6 +12,7 @@
 #   apt_key:
 #     url: https://repo.skype.com/data/SKYPE-GPG-KEY
 #     state: present
+/*
 - name: Add repo
   apt_repository: 
     repo: "{{item}}"
@@ -96,7 +97,7 @@
     src: ../files/AirVPN.desktop
     dest: "{{home}}/.config/autostart/AirVPN.desktop"
     mode: 0755
-
+*/
 - copy:
     src: "../files/{{item}}"
     dest: "/tmp/{{item}}"
