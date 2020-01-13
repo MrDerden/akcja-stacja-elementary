@@ -12,92 +12,92 @@
 #   apt_key:
 #     url: https://repo.skype.com/data/SKYPE-GPG-KEY
 #     state: present
-/*
-- name: Add repo
-  apt_repository: 
-    repo: "{{item}}"
-    state: present
-  with_items:
-    - "deb http://eddie.website/repository/apt stable main"
-    - ppa:nextcloud-devs/client
-    #- "deb [arch=amd64] https://download.newrelic.com/infrastructure_agent/linux/apt xenial main"
-    #- ppa:phoerious/keepassxc
-    - "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
-    # - ppa:peek-developers/stable
 
-- name: Remove arc theme repo
-  apt_repository:
-    repo: ppa:moka/daily
-    state: absent
+# - name: Add repo
+#   apt_repository: 
+#     repo: "{{item}}"
+#     state: present
+#   with_items:
+#     - "deb http://eddie.website/repository/apt stable main"
+#     - ppa:nextcloud-devs/client
+#     #- "deb [arch=amd64] https://download.newrelic.com/infrastructure_agent/linux/apt xenial main"
+#     #- ppa:phoerious/keepassxc
+#     - "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
+#     # - ppa:peek-developers/stable
 
-- name: Accept the EULA for MS core fonts
-  shell: "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
+# - name: Remove arc theme repo
+#   apt_repository:
+#     repo: ppa:moka/daily
+#     state: absent
+
+# - name: Accept the EULA for MS core fonts
+#   shell: "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
 
 
-- name: Install all necessary packages and update the system
-  apt:  name={{item}} state=present update_cache=true force=yes
-  with_items:
-    - apt-transport-https
-    - systemd-container
-    - snapd
-    - gnome-shell
-    - chrome-gnome-shell
-    - nemo
-    - chromium-browser
-    - thunderbird
-    - ubuntu-restricted-addons # flash, mpeg, etc.
-    - audacity
-    - gimp
-    - ttf-mscorefonts-installer
-    - vim
-    - git 
-    - imagemagick 
-    - fortune-mod
-    - htop
-    - dconf-editor
-    - gnome-tweak-tool
-    - sysstat
-    - texlive-xetex
-    - texlive-latex-extra
-    - texlive-lang-polish
-    - texlive-latex-recommended
-    - texlive-fonts-recommended
-    - texlive-fonts-extra
-    - gscan2pdf
-    - network-manager-openvpn-gnome
-    - airvpn
-    #- nextcloud-client
-    #- moka-icon-theme
-    #- faba-icon-theme
-    #- vlc
-    #- newrelic-infra 
-    #- keepassxc
-    - duplicity
-    - python-gi
-    - signal-desktop
-    - xul-ext-lightning
-    #- peek
-    #- skypeforlinux # <- not in cosmic repo again
-    # - slack-desktop # <- not in cosmic repo again
+# - name: Install all necessary packages and update the system
+#   apt:  name={{item}} state=present update_cache=true force=yes
+#   with_items:
+#     - apt-transport-https
+#     - systemd-container
+#     - snapd
+#     - gnome-shell
+#     - chrome-gnome-shell
+#     - nemo
+#     - chromium-browser
+#     - thunderbird
+#     - ubuntu-restricted-addons # flash, mpeg, etc.
+#     - audacity
+#     - gimp
+#     - ttf-mscorefonts-installer
+#     - vim
+#     - git 
+#     - imagemagick 
+#     - fortune-mod
+#     - htop
+#     - dconf-editor
+#     - gnome-tweak-tool
+#     - sysstat
+#     - texlive-xetex
+#     - texlive-latex-extra
+#     - texlive-lang-polish
+#     - texlive-latex-recommended
+#     - texlive-fonts-recommended
+#     - texlive-fonts-extra
+#     - gscan2pdf
+#     - network-manager-openvpn-gnome
+#     - airvpn
+#     #- nextcloud-client
+#     #- moka-icon-theme
+#     #- faba-icon-theme
+#     #- vlc
+#     #- newrelic-infra 
+#     #- keepassxc
+#     - duplicity
+#     - python-gi
+#     - signal-desktop
+#     - xul-ext-lightning
+#     #- peek
+#     #- skypeforlinux # <- not in cosmic repo again
+#     # - slack-desktop # <- not in cosmic repo again
 
-- name: Install all packages on cosmic
-  apt: name={{item}} state=present update_cache=true force=yes
-  with_items:
-    - peek
-  when: ansible_distribution_release == 'cosmic'
+# - name: Install all packages on cosmic
+#   apt: name={{item}} state=present update_cache=true force=yes
+#   with_items:
+#     - peek
+#   when: ansible_distribution_release == 'cosmic'
 
-- name: Install snap
-  shell: apt install snapd 
+# - name: Install snap
+#   shell: apt install snapd 
  
-- name: Install slack from snap
-  shell: snap install slack --classic 
+# - name: Install slack from snap
+#   shell: snap install slack --classic 
   
-- name: Run AirVPN on startup
-  copy:
-    src: ../files/AirVPN.desktop
-    dest: "{{home}}/.config/autostart/AirVPN.desktop"
-    mode: 0755
-*/
+# - name: Run AirVPN on startup
+#   copy:
+#     src: ../files/AirVPN.desktop
+#     dest: "{{home}}/.config/autostart/AirVPN.desktop"
+#     mode: 0755
+
 - copy:
     src: "../files/{{item}}"
     dest: "/tmp/{{item}}"
