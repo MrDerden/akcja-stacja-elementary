@@ -14,8 +14,10 @@
   tags:
     - printer
   shell: "(
-  cd /opt/brother/Printers/MFCL5700DN/lpd;
-  lpadmin -p Brother -E -v 'dnssd://Brother%20MFC-L5700DN%20series._ipp._tcp.local/?uuid=e3248000-80ce-11db-8000-3c2af4a93bae')"
+  #cd /opt/brother/Printers/MFCL5700DN/lpd;
+  #lpadmin -p Brother -E -v 'dnssd://Brother%20MFC-L5700DN%20series._ipp._tcp.local/?uuid=e3248000-80ce-11db-8000-3c2af4a93bae'
+	lpadmin -p Brother -E -v socket://192.168.108.201 -P /usr/share/ppd/brother/brother-MFCL5700DN-cups-en.ppd	
+	)"
   when: brother.stat.exists == False
 
 
