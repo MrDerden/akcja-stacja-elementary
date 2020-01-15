@@ -112,10 +112,10 @@
   ignore_errors: true
 
 - name: Download bundled packages to /tmp/
-   get_url:
-     url: "{{item}}"
-     dest: "/tmp/{{item | basename}}"
-   with_items: "{{bundled_urls}}"
+  get_url:
+    url: "{{item}}"
+    dest: "/tmp/{{item | basename}}"
+  with_items: "{{bundled_urls}}"
   
 - name: Install packages from bundled urls
   apt:
