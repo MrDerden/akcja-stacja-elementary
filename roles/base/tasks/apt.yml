@@ -111,7 +111,7 @@
   with_items: "{{bundled_packages}}"
   ignore_errors: true
 
- - name: Download bundled packages to /tmp/
+- name: Download bundled packages to /tmp/
    get_url:
      url: "{{item}}"
      dest: "/tmp/{{item | basename}}"
