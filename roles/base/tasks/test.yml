@@ -1,4 +1,4 @@
 
 - name: "set Deja-Dup periodic period"
-  command: gsettings set org.gnome.DejaDup periodic-period 7
+  shell: gsettings set org.gnome.DejaDup periodic-period 7
   #when: "ansible_hostname in ['wroman']"
