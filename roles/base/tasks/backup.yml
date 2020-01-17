@@ -3,6 +3,9 @@
 - name: Install python-psutil package
   shell: pip3 install psutil
 
+- name: Set prompt-check disabled
+  dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
+
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
   become_user: "{{item}}"
@@ -11,11 +14,8 @@
     - jesus
   ignore_errors: true 
 
-- name: Set to make backup
-  dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
-
 - name: Set to make backup weekly
-  dconf: key="/org/gnome/deja-dup/periodic-period" value="7"
+  dconf: key="/org/gnome/deja-dup/periodic-period" value="'7'"
   become_user: "{{item}}"
   with_items:
     - wroman
