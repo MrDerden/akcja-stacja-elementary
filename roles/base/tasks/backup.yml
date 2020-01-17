@@ -4,7 +4,7 @@
   shell: pip3 install psutil
 
 - name: Set to make backup
-  dconf: key="/org/gnome/deja-dup/periodic" value="'true'"
+  dconf: key="/org/gnome/deja-dup/periodic" value="['true']"
   become_user: jesus
   when: "ansible_hostname in ['jesus']"
     # with_items:
