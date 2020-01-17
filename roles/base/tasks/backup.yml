@@ -19,8 +19,7 @@
   dconf: key="/org/gnome/deja-dup/periodic-period" value=7
   become_user: jesus 
 
-- name: Set lockation type of backups
-  become: false  
+- name: Set lockation type of backups 
   dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
   become_user: jesus 
   
