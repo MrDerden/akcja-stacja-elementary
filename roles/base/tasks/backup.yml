@@ -5,12 +5,10 @@
 
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
-  become_user: jesus
-  when: "ansible_hostname in ['jesus']"
-    # with_items:
-  #   - wroman
-  #   - jesus
-  # ignore_errors: true
+  become: false
+
+- name: Set to make backup
+  dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
 
 - name: Set to make backup weekly
   dconf: key="/org/gnome/deja-dup/periodic-period" value="7"
