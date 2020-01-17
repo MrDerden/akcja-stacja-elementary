@@ -3,8 +3,7 @@
 - name: Install python-psutil package
   shell: pip3 install psutil
 
-- hosts: localhost
-  name: Set to make backup
+- name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
 
 - name: Set to make backup weekly
