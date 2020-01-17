@@ -5,7 +5,11 @@
 
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
-  become_user: jesus 
+  become_user: "{{item}}"
+  with_items:
+    - wroman
+    - jesus
+  ignore_errors: true 
 
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
