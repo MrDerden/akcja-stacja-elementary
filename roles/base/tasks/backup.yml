@@ -5,15 +5,28 @@
 
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
+  become_user: "{{item}}"
+  with_items:
+    - wroman
+    - jesus
+  ignore_errors: true
 
 - name: Set to make backup weekly
-  become: false
   dconf: key="/org/gnome/deja-dup/periodic-period" value="7"
+  become_user: "{{item}}"
+  with_items:
+    - wroman
+    - jesus
+  ignore_errors: true
 
 - name: Set lockation type of backups
   become: false  
   dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
-
+  become_user: "{{item}}"
+  with_items:
+    - wroman
+    - jesus
+  ignore_errors: true
 
 # user wroman config
 
@@ -48,3 +61,4 @@
   become_user: jesus
   dconf: key="/org/gnome/deja-dup/include-list" value="['/home/jesus']"
   when: "ansible_hostname in ['jesus']"
+
