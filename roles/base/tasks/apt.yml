@@ -134,3 +134,9 @@
     src: /tmp/logo.png
     dest: /usr/share/plymouth/themes/elementary  
     follow: yes
+
+- name: Overwriting logo_blurred.png
+  copy:
+    src: /tmp/logo_blurred.png
+    dest: /usr/share/plymouth/themes/elementary  
+    follow: yes
