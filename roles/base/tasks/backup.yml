@@ -35,7 +35,7 @@
 
 # user jesus config
 
-- name: Set remote URI for host wroman
+- name: Set remote URI for host jesus
   become_user: jesus
   dconf: key="/org/gnome/deja-dup/remote/uri" value="'smb://synology/jesus'"
   when: "ansible_hostname in ['jesus']"
