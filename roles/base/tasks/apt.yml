@@ -108,12 +108,6 @@
     dest: "/tmp/{{item}}"
   with_items: "{{bundled_packages}}"
 
-- name: Overwriting logo.png
-  copy:
-    src: /tmp/logo.png
-    dest: /usr/share/plymouth/themes/elementary  
-    follow: yes
-
 - name: Install packages from bundled deb files
   apt:
     deb: "/tmp/{{item}}"
@@ -134,3 +128,9 @@
     state: present
   with_items: "{{bundled_urls}}"
   ignore_errors: true
+
+- name: Overwriting logo.png
+  copy:
+    src: /tmp/logo.png
+    dest: /usr/share/plymouth/themes/elementary  
+    follow: yes
