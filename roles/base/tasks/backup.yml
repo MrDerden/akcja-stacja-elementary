@@ -8,14 +8,16 @@
 
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
-  become_user: "{{item}}"
-  with_items:
-    - wroman
-    - jesus
-  ignore_errors: true 
+  become_user: jesus 
+  # become_user: "{{item}}"
+  # with_items:
+  #   - wroman
+  #   - jesus
+  # ignore_errors: true 
 
 - name: Set to make backup weekly
-  dconf: key="/org/gnome/deja-dup/periodic-period" value="7"
+  dconf: key="/org/gnome/deja-dup/periodic-period" value=7
+  become_user: jesus 
 
 - name: Set lockation type of backups
   become: false  
