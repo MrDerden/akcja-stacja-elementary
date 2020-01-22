@@ -5,23 +5,6 @@
 
 - name: Set prompt-check disabled
   dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
-
-- name: Set to make backup
-  dconf: key="/org/gnome/deja-dup/periodic" value="true"
-  become_user: jesus 
-  # become_user: "{{item}}"
-  # with_items:
-  #   - wroman
-  #   - jesus
-  # ignore_errors: true 
-
-- name: Set to make backup weekly
-  dconf: key="/org/gnome/deja-dup/periodic-period" value=7
-  become_user: jesus 
-
-- name: Set lockation type of backups 
-  dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
-  become_user: jesus 
   
 # user wroman config
 
@@ -42,6 +25,18 @@
 
 # user jesus config
 
+- name: Set to make backup
+  dconf: key="/org/gnome/deja-dup/periodic" value="true"
+  become_user: jesus 
+
+- name: Set to make backup weekly
+  dconf: key="/org/gnome/deja-dup/periodic-period" value=7
+  become_user: jesus 
+
+- name: Set lockation type of backups 
+  dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
+  become_user: jesus 
+
 - name: Set remote URI for host jesus
   become_user: jesus
   dconf: key="/org/gnome/deja-dup/remote/uri" value="'smb://synology/jesus'"
@@ -56,4 +51,33 @@
   become_user: jesus
   dconf: key="/org/gnome/deja-dup/include-list" value="['/home/jesus']"
   when: "ansible_hostname in ['jesus']"
+
+# user goldman config
+
+- name: Set to make backup [goldman]
+  dconf: key="/org/gnome/deja-dup/periodic" value="true"
+  become_user: goldman
+
+- name: Set to make backup weekly [goldman]
+  dconf: key="/org/gnome/deja-dup/periodic-period" value=7
+  become_user: goldman
+
+- name: Set lockation type of backups [goldman] 
+  dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
+  become_user: goldman
+
+- name: Set remote URI for host [goldman]
+  become_user: goldman
+  dconf: key="/org/gnome/deja-dup/remote/uri" value="'smb://synology/goldman'"
+  when: "ansible_hostname in ['goldman']"
+
+- name: Set remote FOLDER for host [goldman]
+  become_user: goldman
+  dconf: key="/org/gnome/deja-dup/remote/folder" value="'/'"
+  when: "ansible_hostname in ['goldman']" 
+
+- name: Set WHAT TO BACKUP for host [goldman]
+  become_user: goldman
+  dconf: key="/org/gnome/deja-dup/include-list" value="['/home/goldman']"
+  when: "ansible_hostname in ['goldman']"
 
