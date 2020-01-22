@@ -28,14 +28,17 @@
 - name: Set to make backup
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
   become_user: jesus 
+  when: "ansible_hostname in ['jesus']"
 
 - name: Set to make backup weekly
   dconf: key="/org/gnome/deja-dup/periodic-period" value=7
   become_user: jesus 
+  when: "ansible_hostname in ['jesus']"
 
 - name: Set lockation type of backups 
   dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
   become_user: jesus 
+  when: "ansible_hostname in ['jesus']"
 
 - name: Set remote URI for host jesus
   become_user: jesus
@@ -57,10 +60,12 @@
 - name: Set to make backup [goldman]
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
   become_user: goldman
+  when: "ansible_hostname in ['goldman']"
 
 - name: Set to make backup weekly [goldman]
   dconf: key="/org/gnome/deja-dup/periodic-period" value=7
   become_user: goldman
+  when: "ansible_hostname in ['goldman']"
 
 - name: Set lockation type of backups [goldman] 
   dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
