@@ -1,8 +1,6 @@
 ---
 bundled_packages:
   - mfcl5700dnlpr-3.2.0-1.i386.deb
-  - logo.png
-  - logo_blurred.png
 # - openprinting-ppds-postscript-konica-minolta_20130226-1lsb3.2_all.deb
 # - arc-theme_1488477732.766ae1a-0_all.deb
 # - brscan4-0.4.4-1.amd64.deb
