@@ -93,9 +93,6 @@
  
 - name: Install slack from snap
   shell: snap install slack --classic 
-
-- name: set Deja-Dup periodic period
-  shell: gsettings set org.gnome.DejaDup periodic-period 7
   
 - name: Run AirVPN on startup
   copy:
@@ -129,14 +126,20 @@
   with_items: "{{bundled_urls}}"
   ignore_errors: true
 
-- name: Overwriting logo.png
+- name: Copy theme folder
   copy:
-    src: /tmp/logo.png
-    dest: /usr/share/plymouth/themes/elementary  
+    src: /opt/themes/akcja
+    dest: /usr/share/plymouth/themes/  
     follow: yes
 
-- name: Overwriting logo_blurred.png
-  copy:
-    src: /tmp/logo_blurred.png
-    dest: /usr/share/plymouth/themes/elementary  
-    follow: yes
+- name: Set Plymouth configuration to use theme
+  shell: sudo ln -sf /lib/plymouth/themes/akcja/akcja.plymouth /etc/alternatives/default.plymouth && sudo ln -sf /lib/plymouth/themes/akcja/akcja.grub /etc/alternatives/default.plymouth.grub 
+
+- name: Apply Plymouth configuration 18.04+
+  shell: sudo update-initramfs -u
+
+# - name: Overwriting logo_blurred.png
+#   copy:
+#     src: /tmp/logo_blurred.png
+#     dest: /usr/share/plymouth/themes/elementary  
+#     follow: yes
