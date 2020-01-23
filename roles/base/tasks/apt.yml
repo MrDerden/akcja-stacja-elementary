@@ -128,7 +128,7 @@
 
 - name: Copy theme folder
   copy:
-    src: /opt/themes/akcja
+    src: /opt/akcja/akcja-stacja/themes/akcja
     dest: /usr/share/plymouth/themes/  
     follow: yes
 
