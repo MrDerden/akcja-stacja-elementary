@@ -2,9 +2,6 @@
 
 - name: Install python-psutil package
   shell: pip3 install psutil
-
-- name: Set prompt-check disabled
-  dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
   
 # user wroman config
 
@@ -57,6 +54,11 @@
 
 # user goldman config
 
+- name: Set prompt-check disabled
+  dconf: key="/org/gnome/deja-dup/prompt-check" value="'disabled'"
+  become_user: goldman
+  when: "ansible_hostname in ['goldman']"
+  
 - name: Set to make backup [goldman]
   dconf: key="/org/gnome/deja-dup/periodic" value="true"
   become_user: goldman
