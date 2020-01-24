@@ -5,4 +5,4 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/akcja
-ScriptFile=/usr/share/plymouth/themes/akcja/elementary.script
+ScriptFile=/usr/share/plymouth/themes/akcja/akcja.script

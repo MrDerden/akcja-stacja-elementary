@@ -20,6 +20,7 @@
   with_items:
     - "deb http://eddie.website/repository/apt stable main"
     - ppa:nextcloud-devs/client
+    - ppa:libreoffice/ppa
     #- "deb [arch=amd64] https://download.newrelic.com/infrastructure_agent/linux/apt xenial main"
     #- ppa:phoerious/keepassxc
     - "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
@@ -78,6 +79,7 @@
     - signal-desktop
     - xul-ext-lightning
     - plymouth-themes
+    - libreoffice
     #- peek
     #- skypeforlinux # <- not in cosmic repo again
     # - slack-desktop # <- not in cosmic repo again
