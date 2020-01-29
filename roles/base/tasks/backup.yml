@@ -72,6 +72,7 @@
 - name: Set lockation type of backups [goldman] 
   dconf: key="/org/gnome/deja-dup/backend" value="'remote'"
   become_user: goldman
+  when: "ansible_hostname in ['goldman']"
 
 - name: Set remote URI for host [goldman]
   become_user: goldman
