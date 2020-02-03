@@ -1,5 +1,5 @@
 
-# Akcja Stacja for Elementary OS
+# Akcja Stacja for Elementary OS 5.1
 
 ## Instalacja
 
