@@ -1,5 +1,5 @@
 
-# Akcja Stacja for Elementary OS
+# Install Brother printer
 
 ## Instalacja
 
