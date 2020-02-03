@@ -22,7 +22,7 @@
     - ppa:nextcloud-devs/client
     - ppa:libreoffice/ppa
     #- "deb [arch=amd64] https://download.newrelic.com/infrastructure_agent/linux/apt xenial main"
-    #- ppa:phoerious/keepassxc
+    - ppa:phoerious/keepassxc
     - "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
     # - ppa:peek-developers/stable
 
@@ -77,7 +77,7 @@
     #- faba-icon-theme
     #- vlc
     #- newrelic-infra 
-    #- keepassxc
+    - keepassxc
     - deja-dup
     - duplicity
     - python-gi
