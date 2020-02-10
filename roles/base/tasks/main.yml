@@ -6,5 +6,5 @@
 - include_tasks: printer.yml
 - include_tasks: fonts.yml
 #- include_tasks: monitoring.yml
-- include_tasks: backup.yml
+#- include_tasks: backup.yml
 
