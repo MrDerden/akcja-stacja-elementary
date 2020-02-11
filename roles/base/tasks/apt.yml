@@ -85,6 +85,7 @@
     - xul-ext-lightning
     - plymouth-themes
     - libreoffice
+    - openssh-server
     #- peek
     #- skypeforlinux # <- not in cosmic repo again
     # - slack-desktop # <- not in cosmic repo again
