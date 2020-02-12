@@ -86,6 +86,7 @@
     - plymouth-themes
     - libreoffice
     - openssh-server
+    - firefox
     #- peek
     #- skypeforlinux # <- not in cosmic repo again
     # - slack-desktop # <- not in cosmic repo again
@@ -146,6 +147,9 @@
 - name: Apply Plymouth configuration 18.04+
   shell: sudo update-initramfs -u
 
+- name: Use double-click in file manager
+  shell: gsettings set io.elementary.files.preferences single-click false
+  
 # - name: Overwriting logo_blurred.png
 #   copy:
 #     src: /tmp/logo_blurred.png
