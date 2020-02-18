@@ -150,6 +150,8 @@
 - name: Use double-click in file manager
   shell: gsettings set io.elementary.files.preferences single-click false
   
+- name: Disable screen rotation
+  shell: gsettings set org.gnome.settings-daemon.peripherals.touchscreen orientation-lock true
 # - name: Overwriting logo_blurred.png
 #   copy:
 #     src: /tmp/logo_blurred.png
