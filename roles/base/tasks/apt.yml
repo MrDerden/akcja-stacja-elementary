@@ -90,7 +90,7 @@
     #- peek
     #- skypeforlinux # <- not in cosmic repo again
     # - slack-desktop # <- not in cosmic repo again
-  ignore_errors: true
+  
 
 - name: Install all packages on cosmic
   apt: name={{item}} state=present update_cache=true force=yes
