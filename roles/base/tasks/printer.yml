@@ -35,3 +35,6 @@
 - name: Install skaner rules from .deb
   apt:
     deb: /tmp/brother-udev-rule-type1-1.0.2-0.all.deb
+
+- name: Add skaner
+  shell: brsaneconfig4 -a name=Brother model=5700 ip=192.168.108.201
