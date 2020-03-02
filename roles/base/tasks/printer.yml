@@ -27,3 +27,11 @@
 #cd /opt/brother/Printers/MFCL5700DN/lpd;
 #lpadmin -p Brother -E -v 'dnssd://Brother%20MFC-L5700DN%20series._ipp._tcp.local/?uuid=e3248000-80ce-11db-8000-3c2af4a93bae'
 #lpadmin -p Brother -E -v socket://192.168.108.201 -P /etc/cups/ppd/Brother_MFC-L5700DN_series.ppd    
+
+- name: Install skaner driver from .deb
+  apt:
+    deb: /tmp/brscan4-0.4.8-1.amd64.deb
+
+- name: Install skaner rules from .deb
+  apt:
+    deb: /tmp/brother-udev-rule-type1-1.0.2-0.all.deb
